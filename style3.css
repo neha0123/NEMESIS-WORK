@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Mulish', sans-serif;
+    box-sizing: border-box;
+}
+
+
+body{
+    background:url(4.jpg) no-repeat center center fixed; /*3*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width:100%;
+
+    
+
+}
+.container{
+    background-color: aliceblue;
+    border-radius: 10px;
+    box-shadow: 0 2.8px 2.2px rgba(0,0,0,0.34),0 6.7px 5.3px rgba(0,0,0,0.048),0 12;
+    overflow: hidden;
+    width: calc(100vw-15vw);
+    max-width: 100%;
+    width: 25rem ;
+}
+.header{
+    background: linear-gradient(to left,#74ebd5,#9face6);
+    padding: 30px 0;
+}
+.header h2{
+    color: #222;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+}
+.form{
+    padding:40px ;
+}
+.form-control{
+    margin-bottom: 30px;
+    position: relative;
+}
+.form-control label{
+    display: inline-block;
+    margin-bottom: 5px;
+
+}
+.form-control input{
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid #f0f0f0;
+    display: block;
+    font-family:'Monserrat',sans-serif  ;
+    font-size: 14px;
+    padding: 12px;
+}
+.form-control.success input{
+border-color: green;
+
+}
+.form-control.error input{
+    border-color: red;
+    
+    }
+.form-control i{
+    position: absolute;
+    right: 12px;
+    top: 38px;
+    visibility: hidden;
+
+
+}
+.form-control i.fa-check-circle{
+    color: green;
+    visibility: hidden;
+}
+.form-control i.fa-exclamation-circle{
+    color: red;
+    visibility: hidden;
+}
+.form-control  small {
+    color: red;
+    position: absolute;
+   
+    left: 0;
+
+    visibility: hidden;
+}
+
+.form-control.error  small {
+    visibility: visible;
+}
+.form-control input:focus{
+    outline: 0;
+    border-color: #777;
+
+}
+
+.form .btn{
+    background:linear-gradient(to left,#74ebd5,#9face6) ;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    color: white;
+    display: block;
+    font-family:'Monserrat',sans-serif ;
+    font-size: 16px;
+    padding: 15px 0;
+    margin-top: 20px;
+    width: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    transform: all 1s ease;
+    cursor: pointer;
+}
+.form .btn:hover{
+    background: linear-gradient(to right,#74ebd5,#9face6);;
+}
+@media (max-width:
+998px){.container{
+    width: calc(100vw-35vw);
+max-width: 100%;}
+}

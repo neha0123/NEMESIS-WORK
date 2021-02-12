@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style3.css">
+    <script src="valid2.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+        integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+        crossorigin="anonymous" />
+    <title>Registration </title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Registration form</h1>
+        </div>
+
+        <form id="form1" class="form" method="POST" action="database.php">
+
+            <div class="form-control">
+                <label>Username</label>
+
+                <input type="text" name="username" id="username" placeholder="Enter Your Full Name" required>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error Message</small>
+
+
+            </div>
+
+            <div class="form-control">
+                <label>Mobile No.</label>
+                <input type="number" name="phone" id="phone" placeholder="Enter Your Phone No." required>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error Message</small>
+
+
+            </div>
+            <div class="form-control">
+                <label>Email_id</label>
+                <input type="Email" name="email" id="email" placeholder="Enter Your Email_id"required>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="form-control">
+                <label>Address</label>
+                <input type="text" name="address" id="address" placeholder="Enter Your Address"required>
+
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <input type="submit" class="btn" value="Submit" id="submit">
+            <ul id="response"></ul>
+        </form>
+    </div>
+    <script type="text/javascript">
+        const form = document.getElementById('form1');
+        const username = document.getElementById('username');
+        const phone = document.getElementById('phone');
+        const address = document.getElementById('address');
+        const email = document.getElementById('email');
+
+         form.addEventListener=('submit',(event) => {
+             event.preventDefault();
+             validate();
+             alert("data added succefully");
+
+         })
+        //more validation for email
+        const isEmail = (emailval) => {
+            var atSymbol = emailval.indexOf("@");
+            if (atSymbol < 1) {
+                return false;
+            }
+            var dot = emailval.lastIndexOf('.');
+            if (dot <= atSymbol + 2) return false;
+            if (dot === emailval.length - 1) return false;
+            return true;
+        }
+        const isUsername = (usernameval) => {
+            var exp = /^[a-zA-Z0-9]*$/gm;//use for validation of username from this only alphanumreic character allowed and no space allowed
+            var str = usernameval;
+
+            var result = exp.test(str);
+            if (result) {
+                return true;
+            } return false;
+
+        }
+
+        //define the validate function
+        const validate = () => {
+            const usernameval = username.value.trim();
+            const phoneval = phone.value.trim();
+            const addressval = address.value.trim();
+            const emailval = email.value.trim();
+
+            //validate username
+            if (usernameval === "") {
+                setErrormsg(username, 'username can not be blank');
+            }
+            else if (!isUsername(usernameval)) {
+                setErrormsg(username, 'Not a valid username');
+            }
+
+            else {
+                setSuccessMsg(username);
+            }
+
+            if (phoneval === "") {
+                setErrormsg(phone, 'phone number can not be blank');
+            }
+            else if (phoneval.length != 10) {
+                setErrormsg(phone, 'Only 10 digits of number allowded')
+            }
+            else {
+                setSuccessMsg(phone);
+            }
+            if (addressval === "") {
+                setErrormsg(address, 'Enter Your address here');
+            }
+
+            else {
+                setSuccessMsg(address);
+            }
+            if (emailval === "") {
+                setErrormsg(email, 'email can not be blank');
+
+
+            }
+            else if (!isEmail(emailval)) {
+                setErrormsg(email, 'Not a valid Email');
+            }
+            else {
+                setSuccessMsg(email);
+            }
+
+         
+        }
+        function setErrormsg(input, errormsgs) {
+            const formcontrol = input.parentElement;
+            const small = formcontrol.querySelector('small');
+            formcontrol.className = "form-control error";
+            small.innerText = errormsgs;
+
+        }
+        function setSuccessMsg(input) {
+            const formcontrol = input.parentElement;
+            formcontrol.className = "form-control success"
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+
+</html>
+
+

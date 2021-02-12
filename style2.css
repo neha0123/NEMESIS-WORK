@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+   
+    
+box-sizing: border-box;
+}
+
+
+body{ 
+    background: url(8.jpg) no-repeat center center fixed; /*3*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  #head{
+      margin-top: 30px;
+    font-family:  sans-serif;
+   font-weight: 600;
+   color: blueviolet;
+   text-align: center;
+   text-transform: capitalize;
+
+}
+th{
+  color:red
+}
